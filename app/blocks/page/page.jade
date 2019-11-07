@@ -1,3 +1,53 @@
+- var months = ["January", "Febrary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+- var nations = ["American", "Russian"]
 mixin page()
 	+b('body').page&attributes(attributes)
-		block
+		section.signup
+			h1.signup__title Sign up
+			block signup-form
+				.signup-form
+					h2.signup-form__title New user? 
+					.signup-form__comment Use the form below to create your account.
+					form.signup-form__form.form(action="post")
+						label.signup-form__label First Name
+							input.form__field.form__field--text(type="text", placeholder="Alice")
+						label.signup-form__label Last Name
+							input.form__field.form__field--text(type="text", placeholder="Miller")
+						label.signup-form__label Nationality
+							select#nation.form__field.form__field--select(name="nation")
+								option(value="American") American
+								option(value="Russian") Russian
+						label.signup-form__label E-mail
+							input.form__field.form__field--email(type="email", placeholder="alice.miller@yahoo.com", requared)
+						.signup-form__date 
+							.signup-form__label Date of Birth
+							.signup-form__datepicker
+								select#day.form__field.form__field--select(name="day")
+									for (var i=1; i<=31; i++) {
+										option(value= i)= i
+									}
+								select#month.form__field.form__field--select(name="month")
+									for month in months
+										option(value= month)= month
+								select#year.form__field.form__field--select(name="year")
+									for (var i=1995; i<=2010; i++) {
+										option(value= i)= i
+									}
+						.signup-form__gender
+							.signup-form__label Gender 
+							.signup-form__radiogroup								 
+								label.signup-form__radiolabel
+									#[input#Mail.form__field.form__field--radio(type="radio", name="gender", value="Male")] Male
+								label.signup-form__radiolabel	
+									#[input#Female.form__field.form__field--radio(type="radio", name="gender", value="Female", checked)] Female
+						label.signup-form__label Password
+							input.form__field.form__field--text(type="password", requared)
+						label.signup-form__label Confirm Password
+							input.form__field.form__field--text(type="password", requared)
+								 
+									
+
+
+
+			
+			
