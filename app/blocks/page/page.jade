@@ -33,21 +33,14 @@ mixin page()
 								select#year.form__field.form__field--select(name="year")
 									while years < 2010 
 										option(value= years++)= years++
-						.signup-form__gender
-							.signup-form__label Gender 
-							.signup-form__radiogroup								 
-								label.signup-form__radiolabel
-									#[input.form__field.form__field--radio] Male
-								label.signup-form__radiolabel	
-									#[input.form__field.form__field--radio] Female
+						//- .signup-form__gender
+						//- 	.signup-form__label Gender 
+						//- 	.signup-form__radiogroup								 
+						//- 		label.signup-form__radiolabel
+						//- 			#[input#Mail.form__field.form__field--radio(type="radio", name="gender", value="Male")] Male
+						//- 		label.signup-form__radiolabel	
+						//- 			#[input#Female.form__field.form__field--radio(type="radio", name="gender", value="Female", checked)] Female
 						label.signup-form__label Password
 							input.form__field.form__field--text(type="password", requared)
 						label.signup-form__label Confirm Password
 							input.form__field.form__field--text(type="password", requared)
-								 
-									
-
-
-
-			
-			
