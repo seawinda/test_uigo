@@ -1,5 +1,7 @@
 - var months = ["January", "Febrary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 - var nations = ["American", "Russian"]
+- var years = 1995
+- var days = 1
 mixin page()
 	+b('body').page&attributes(attributes)
 		section.signup
@@ -23,14 +25,14 @@ mixin page()
 							.signup-form__label Date of Birth
 							.signup-form__datepicker
 								select#day.form__field.form__field--select(name="day")
-									for (var i=1; i<=31; i++)
-										option(value= i)= i
+									while days < 2010 
+										option(value= days++)= days++
 								select#month.form__field.form__field--select(name="month")
-									for month in months
+									each month in months
 										option(value= month)= month
 								select#year.form__field.form__field--select(name="year")
-									for (var i=1995; i<=2010; i++) 
-										option(value= i)= i
+									while years < 2010 
+										option(value= years++)= years++
 						.signup-form__gender
 							.signup-form__label Gender 
 							.signup-form__radiogroup								 
