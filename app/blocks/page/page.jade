@@ -1,46 +1,51 @@
-- var months = ["January", "Febrary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+- var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 - var nations = ["American", "Russian"]
 - var years = 1995
 - var days = 1
 mixin page()
 	+b('body').page&attributes(attributes)
 		section.signup
-			h1.signup__title Sign up
+			block signup-title 
+				.signup-title 
+					h1.signup-title__text Sign up
 			block signup-form
 				.signup-form
 					h2.signup-form__title New user? 
 					.signup-form__comment Use the form below to create your account.
 					form.signup-form__form.form(action="post")
-						label.signup-form__label First Name
+						label.form__label First Name
 							input.form__field.form__field--text(type="text", placeholder="Alice")
-						label.signup-form__label Last Name
+						label.form__label Last Name
 							input.form__field.form__field--text(type="text", placeholder="Miller")
-						label.signup-form__label Nationality
+						label.form__label Nationality
 							select#nation.form__field.form__field--select(name="nation")
 								option(value="American") American
 								option(value="Russian") Russian
-						label.signup-form__label E-mail
-							input.form__field.form__field--email(type="email", placeholder="alice.miller@yahoo.com", requared)
-						.signup-form__date 
-							.signup-form__label Date of Birth
-							.signup-form__datepicker
-								select#day.form__field.form__field--select(name="day")
-									while days < 2010 
+						label.form__label E-mail
+							input.form__field.form__field--email(type="email", placeholder="alice.miller@yahoo.com", required)
+						.form__date 
+							.form__label.form__label--date Date of Birth
+							.form__datepicker
+								select#day.form__field.form__field--select.form__field--date(name="day")
+									while days < 31
 										option(value= days++)= days++
-								select#month.form__field.form__field--select(name="month")
+								select#month.form__field.form__field--select.form__field--date(name="month")
 									each month in months
 										option(value= month)= month
-								select#year.form__field.form__field--select(name="year")
+								select#year.form__field.form__field--select.form__field--date(name="year")
 									while years < 2010 
 										option(value= years++)= years++
-						//- .signup-form__gender
-						//- 	.signup-form__label Gender 
-						//- 	.signup-form__radiogroup								 
-						//- 		label.signup-form__radiolabel
-						//- 			#[input#Mail.form__field.form__field--radio(type="radio", name="gender", value="Male")] Male
-						//- 		label.signup-form__radiolabel	
-						//- 			#[input#Female.form__field.form__field--radio(type="radio", name="gender", value="Female", checked)] Female
-						label.signup-form__label Password
-							input.form__field.form__field--text(type="password", requared)
-						label.signup-form__label Confirm Password
-							input.form__field.form__field--text(type="password", requared)
+						.form__gender
+							.form__label Gender 
+							.form__radiogroup								 
+								input#Male.form__field.form__field--radio(type="radio", name="gender", value="Male")
+								label.form__radiolabel(for="Male") Male
+								input#Female.form__field.form__field--radio(type="radio", name="gender", value="Female")
+								label.form__radiolabel(for="Female") Female
+						label.form__label Password
+							input.form__field.form__field--text(type="password", required)
+						label.form__label Confirm Password
+							input.form__field.form__field--text(type="password", required)
+						.signup-form__login Have an account? 					
+							a(href="#") Login
+						button.signup-form__button(type="button") Complete Signup
