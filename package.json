@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh@github.com:seawinda/test_uigo.git"
+    "url": "git@github.com:seawinda/test_uigo.git"
   },
   "author": "Elena Sergeeva <lekochka@inbox.ru> (https://github.com/seawinda)",
   "homepage": "https://seawinda.github.io/test_uigo/",
